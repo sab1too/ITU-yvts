@@ -1,155 +1,193 @@
 :root {
-    --navy: #0a2e52;
-    --gold: #c98a2c;
-    --cream: #f7f3ea;
+    --tan: #e8c585;
+    --navy: #0f3150;
+    --navy-light: #1b4a75;
 }
+
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
-    padding: 40px 16px;
-    font-family: 'Source Sans 3', Arial, sans-serif;
-    background: var(--cream);
-}
-
-.card-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    padding: 60px 16px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #6b6f75;
 }
 
 .card {
     position: relative;
     width: 400px;
     height: 229px;
+    margin: 0 auto;
     overflow: hidden;
-    border-radius: 10px;
-    background: var(--navy);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .25);
+    border-radius: 14px;
+    background: var(--tan);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
 }
 
-.back { color: var(--navy); font-size: 15px; }
 
 
-/* диагональ: цагаан хэсэг */
-
-.split-light {
+.navy-back,
+.navy {
     position: absolute;
-    inset: 0;
-    background: #fff;
-    clip-path: polygon(0 100%, 38% 100%, 68% 0, 0 0);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 46px 0 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%, 0 45%);
+}
+
+.navy-back { left: 51%; background: var(--navy-light); }
+.navy      { left: 55%; background: var(--navy); }
+
+/* доод талын тан өнгийн товгор хэсэг */
+.bump {
+    position: absolute;
+    left: 49%;
+    bottom: 0;
+    width: 19%;
+    height: 72%;
+    background: var(--tan);
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
 }
 
 
-/* нэр */
-
-.name-block {
+.left {
     position: absolute;
     left: 28px;
-    top: 28px;
+    top: 48px;
 }
 
-.given-name {
-    font: 700 30px 'Playfair Display', Georgia, serif;
+.name {
+    font-size: 30px;
+    font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.1;
     color: var(--navy);
 }
 
-.family-name {
-    margin-top: 3px;
-    font-size: 14px;
+.role {
+    margin-top: 4px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     color: var(--navy);
 }
 
-
-/* монограмм (цэнхэр хэсэгт) */
-
-.monogram {
-    position: absolute;
-    top: 24px;
-    right: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    color: var(--gold);
-    font: 700 20px 'Playfair Display', Georgia, serif;
+.name-line {
+    width: 92px;
+    height: 3px;
+    margin-top: 8px;
+    background: var(--navy);
 }
 
-
-/* мэргэжил, и-мэйл: диагональ шугамаас хол, дээгүүр байрлана */
-
-.info-block {
-    position: absolute;
-    left: 28px;
-    top: 96px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.role  { font-size: 13px; color: var(--navy); font-weight: 600; }
-.email { font-size: 13px; color: var(--navy); }
-
-
-/* уриа: нэг текст, хоёр давхарга (диагоналаар хоёр өнгө) */
-
-.tagline-light,
-.tagline-dark {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-.tagline-light { clip-path: polygon(0 100%, 38% 100%, 68% 0, 0 0); }
-.tagline-dark  { clip-path: polygon(38% 100%, 100% 100%, 100% 0, 68% 0); }
-
-.tagline-light span,
-.tagline-dark span {
+.contacts {
     position: absolute;
     left: 28px;
     bottom: 22px;
-    font: 400 21px 'Marck Script', cursive;
-    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.tagline-light span { color: var(--navy); }
-.tagline-dark span  { color: #fff; }
+.contacts li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    font-size: 10.5px;
+    font-weight: 400;
+    color: var(--navy);
+}
+
+.contacts i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--navy);
+    border-radius: 6px;
+    font-size: 18px;
+    font-style: normal;
+}
 
 
-/* QR */
-
-.qr-block {
+.right {
     position: absolute;
-    right: 24px;
-    bottom: 18px;
+    left: 55%;
+    right: 0;
+    top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 8px 0 24px;
     text-align: center;
 }
 
+.emblem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 3px solid var(--tan);
+    border-radius: 50%;
+    color: var(--tan);
+    font: 700 22px Georgia, serif;
+}
+
+.company {
+    margin-top: 12px;
+    font-size: 12.5px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--tan);
+}
+
+.tag {
+    margin-top: 3px;
+    font-size: 6.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--tan);
+}
+
+.qr-wrap {
+    position: absolute;
+    left: 55%;
+    right: 0;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    padding-left: 24px;
+}
+
 .qr {
-    width: 70px;
-    height: 70px;
-    overflow: hidden;
-    border-radius: 4px;
+    width: 76px;
+    height: 76px;
+    padding: 3px;
+    border: 2px solid var(--tan);
+    border-radius: 10px;
     background: #fff;
 }
 
 .qr img { display: block; width: 100%; height: 100%; object-fit: contain; }
 
-.scan-label {
-    margin-top: 4px;
-    font-size: 10px;
-    letter-spacing: .5px;
-    color: var(--gold);
+
+
+.back-link { margin: 36px 0 0; text-align: center; }
+.back-link a { color: #fff; font-size: 15px; }
+
+
+
+.card { zoom: 1.6; }
+
+/* таблет */
+@media (max-width: 800px) {
+    .card { zoom: 1.1; }
 }
 
-
-/* жижиг утсан дээр картыг багасгана */
-
+/* утас */
 @media (max-width: 440px) {
-    .card-wrap { zoom: .8; }
+    .card { zoom: .8; }
 }
