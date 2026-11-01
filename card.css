@@ -1,0 +1,155 @@
+:root {
+    --navy: #0a2e52;
+    --gold: #c98a2c;
+    --cream: #f7f3ea;
+}
+
+body {
+    margin: 0;
+    padding: 40px 16px;
+    font-family: 'Source Sans 3', Arial, sans-serif;
+    background: var(--cream);
+}
+
+.card-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.card {
+    position: relative;
+    width: 400px;
+    height: 229px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--navy);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .25);
+}
+
+.back { color: var(--navy); font-size: 15px; }
+
+
+/* диагональ: цагаан хэсэг */
+
+.split-light {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    clip-path: polygon(0 100%, 38% 100%, 68% 0, 0 0);
+}
+
+
+/* нэр */
+
+.name-block {
+    position: absolute;
+    left: 28px;
+    top: 28px;
+}
+
+.given-name {
+    font: 700 30px 'Playfair Display', Georgia, serif;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    color: var(--navy);
+}
+
+.family-name {
+    margin-top: 3px;
+    font-size: 14px;
+    color: var(--navy);
+}
+
+
+/* монограмм (цэнхэр хэсэгт) */
+
+.monogram {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    font: 700 20px 'Playfair Display', Georgia, serif;
+}
+
+
+/* мэргэжил, и-мэйл: диагональ шугамаас хол, дээгүүр байрлана */
+
+.info-block {
+    position: absolute;
+    left: 28px;
+    top: 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.role  { font-size: 13px; color: var(--navy); font-weight: 600; }
+.email { font-size: 13px; color: var(--navy); }
+
+
+/* уриа: нэг текст, хоёр давхарга (диагоналаар хоёр өнгө) */
+
+.tagline-light,
+.tagline-dark {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.tagline-light { clip-path: polygon(0 100%, 38% 100%, 68% 0, 0 0); }
+.tagline-dark  { clip-path: polygon(38% 100%, 100% 100%, 100% 0, 68% 0); }
+
+.tagline-light span,
+.tagline-dark span {
+    position: absolute;
+    left: 28px;
+    bottom: 22px;
+    font: 400 21px 'Marck Script', cursive;
+    white-space: nowrap;
+}
+
+.tagline-light span { color: var(--navy); }
+.tagline-dark span  { color: #fff; }
+
+
+/* QR */
+
+.qr-block {
+    position: absolute;
+    right: 24px;
+    bottom: 18px;
+    text-align: center;
+}
+
+.qr {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.qr img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+.scan-label {
+    margin-top: 4px;
+    font-size: 10px;
+    letter-spacing: .5px;
+    color: var(--gold);
+}
+
+
+/* жижиг утсан дээр картыг багасгана */
+
+@media (max-width: 440px) {
+    .card-wrap { zoom: .8; }
+}
